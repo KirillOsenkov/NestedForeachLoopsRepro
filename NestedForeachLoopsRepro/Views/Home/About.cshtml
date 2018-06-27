@@ -1,0 +1,32 @@
+﻿@model List<Quote>
+
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+@foreach(var quote in Model)
+{
+<div clas="row">
+    <div class="col-2">
+        @quote.QuoteCustomer.CompanyName
+    </div>
+    <div class="col-2">
+        @quote.QuoteCustomer.FName @quote.QuoteCustomer.LName
+    </div>
+    <div class="col-2">
+        @quote.Total
+    </div>
+    <div class="col-4">
+        @foreach(var bag in quote.Bags)
+        {
+        @bag.DisplayName
+        }
+    </div>
+    <div class="col-2">
+        @quote.SalesRep
+    </div>
+</div>
+}
+
